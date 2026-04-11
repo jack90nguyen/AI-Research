@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 10 Sản Phẩm Tiềm Năng - Macorner (Kèm Hình Ảnh Scale)</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #333333;
+            --border: #e0e0e0;
+        }
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: var(--primary);
+            margin: 0 0 10px 0;
+            font-size: 2.2rem;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 40px;
+            overflow: hidden;
+            background: var(--card-bg);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        @media (min-width: 992px) {
+            .product-card {
+                flex-direction: row;
+            }
+        }
+        .image-container {
+            flex: 0 0 350px;
+            background: #f1f2f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .product-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .product-details {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .rank-badge {
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+            align-self: flex-start;
+        }
+        .product-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin: 0 0 15px 0;
+            line-height: 1.4;
+        }
+        .product-price {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        @media (min-width: 768px) {
+            .analysis-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .analysis-box {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+        }
+        .analysis-box.audience { border-left-color: #9b59b6; }
+        .analysis-box.insight { border-left-color: #3498db; }
+        .analysis-box.scale { border-left-color: #2ecc71; grid-column: 1 / -1; background: #f0fdf4;}
+        
+        .analysis-box h4 {
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .audience h4 { color: #8e44ad; }
+        .insight h4 { color: #2980b9; }
+        .scale h4 { color: #27ae60; }
+        
+        .analysis-box p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
+        
+        /* New Styles for Scale Images */
+        .scale-section {
+            margin-top: 15px;
+            border-top: 1px dashed #ccc;
+            padding-top: 20px;
+        }
+        .scale-section h4 {
+            color: #d35400;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        .scale-images-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: flex-start;
+        }
+        .scale-item {
+            flex: 1;
+            min-width: 120px;
+            max-width: 180px;
+            text-align: center;
+        }
+        .scale-item img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 8px;
+            transition: transform 0.2s;
+        }
+        .scale-item img:hover {
+            transform: scale(1.05);
+        }
+        .scale-item span {
+            font-size: 0.85rem;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .product-link {
+            text-decoration: none;
+            color: #fff;
+            background-color: var(--secondary);
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-block;
+            align-self: flex-start;
+            transition: background 0.3s;
+            margin-top: 25px;
+        }
+        .product-link:hover {
+            background-color: #2980b9;
+        }
+        ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Top 10 Sản Phẩm Tiềm Năng Bán Tốt Từ Macorner</h1>
+        <div class="subtitle">Bao gồm Phân Tích Chuyên Sâu và 3 Hình Ảnh Gợi Ý Scale/Re-design Cho Mỗi Sản Phẩm</div>
+    </div>
+
+    <!-- Product 1 -->
+    <div class="product-card">
+        <div class="image-container">
+            <img class="product-image" src="https://cdn.shopify.com/s/files/1/0626/0421/4428/files/Grandma_s_Garden_Family_Birth_Flower_Bouquet_Flowers_Gifts_For_Mom_Grandma_Personalized_Acrylic_Plaque_1.jpg?v=1775733691" alt="Grandma's Garden Family Birth Flower Bouquet - Personalized Acrylic Plaque">
+        </div>
+        <div class="product-details">
+            <div class="rank-badge">#1</div>
+            <h2 class="product-title">Grandma's Garden Family Birth Flower Bouquet - Personalized Acrylic Plaque</h2>
+            <div class="product-price">$29.95</div>
+            
+            <div class="analysis-grid">
+                <div class="analysis-box audience">
+                    <h4>🎯 Tệp Khách Hàng</h4>
+                    <p>Phụ nữ (35-65 tuổi), những người đã có gia đình. Mua làm quà tặng cho mẹ đẻ, mẹ chồng hoặc bà nhân dịp Mother's Day, Sinh nhật, hoặc Lễ tạ ơn.</p>
+                </div>
+                <div class="analysis-box insight">
+                    <h4>💡 Phân Tích Insight</h4>
+                    <p>Concept "Vườn của Bà" (Grandma's Garden) nơi mỗi nụ hoa đại diện cho một người cháu đánh mạnh vào lòng tự hào gia đình. Chất liệu Acrylic trong suốt mang lại cảm giác hiện đại, sang trọng hơn in canvas/poster thông thường, cho phép bán giá cao nhưng phí ship rẻ.</p>
+                </div>
+                <div class="analysis-box scale">
+                    <h4>🚀 Hướng Scale & Mở Rộng</h4>
+                    <ul>
+                        <li><strong>Scale Đối tượng:</strong> Đổi title thành "Mom's Garden", "Auntie's Garden", "Nana's Garden".</li><li><strong>Scale Thiết kế:</strong> Thay thế hoa tháng sinh bằng hình chibi các cháu, hoặc dấu vân tay, hoặc thú cưng (Cat Mom/Dog Mom).</li><li><strong>Scale Sản phẩm:</strong> Áp dụng cùng thiết kế này lên Chăn (Fleece Blanket), Gối vuông (Throw Pillow).</li>
+                    </ul>
+                    
+                    <!-- Scale Images Section -->
+                    <div class="scale-section">
+                        <h4>🎨 3 Hướng Re-design / Scale Bằng Hình Ảnh:</h4>
+                        <div class="scale-images-grid">
+                            
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Acrylic%20plaque%20mockup%2C%20Mom%27s%20Garden%2C%20birth%20flowers%2C%20modern%20clear%20glass%20sign%2C%20soft%20lighting%2C%20product%20photography?width=400&height=400&nologo=true" alt="Scale Idea 1">
+                            <span>Đổi tệp sang Mẹ</span>
+                        </div>
+        
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Acrylic%20plaque%20mockup%2C%20Cat%20Mom%27s%20Garden%20with%20cute%20paw%20prints%2C%20clear%20glass%20sign%2C%20soft%20lighting%2C%20product%20photography?width=400&height=400&nologo=true" alt="Scale Idea 2">
+                            <span>Đổi tệp sang Thú cưng</span>
+                        </div>
+        
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Throw%20pillow%20mockup%20on%20a%20sofa%2C%20rustic%20garden%20theme%20floral%20pattern%2C%20personalized%20gift%2C%20high%20quality%20interior%20photography?width=400&height=400&nologo=true" alt="Scale Idea 3">
+                            <span>Mở rộng sang Gối Sofa</span>
+                        </div>
+        
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <a href="https://macorner.co/products/grandmas-garden-family-birth-flower-bouquet-flowers-gifts-for-mom-grandma-personalized-acrylic-plaque-ma8fpamx9" class="product-link" target="_blank">Xem chi tiết sản phẩm gốc</a>
+        </div>
+    </div>
+    
+    <!-- Product 2 -->
+    <div class="product-card">
+        <div class="image-container">
+            <img class="product-image" src="https://cdn.shopify.com/s/files/1/0626/0421/4428/files/Mother_Children_Forever_Linked_Together_Personalized_Flower_In_Glass_Angel_Figurines_1.jpg?v=1775793170" alt="Mother & Children Forever Linked Together - Personalized Flower In Glass Angel Figurines">
+        </div>
+        <div class="product-details">
+            <div class="rank-badge">#2</div>
+            <h2 class="product-title">Mother & Children Forever Linked Together - Personalized Flower In Glass Angel Figurines</h2>
+            <div class="product-price">$39.95</div>
+            
+            <div class="analysis-grid">
+                <div class="analysis-box audience">
+                    <h4>🎯 Tệp Khách Hàng</h4>
+                    <p>Con cái đã trưởng thành mua tặng mẹ, hoặc chồng mua tặng vợ nhân dịp kỷ niệm sinh con. Phù hợp tệp khách hàng thích decor nhà cửa phong cách cổ điển, tâm linh.</p>
+                </div>
+                <div class="analysis-box insight">
+                    <h4>💡 Phân Tích Insight</h4>
+                    <p>Sản phẩm ngách vật lý cực độc đáo. Khác với Print-on-demand truyền thống (áo, cốc), tượng thiên thần thủy tinh có giá trị cảm nhận (Perceived Value) rất cao. Người nhận sẽ đặt nó ở phòng khách/tủ kính. Mức giá $39.95 mang lại biên lợi nhuận tuyệt vời.</p>
+                </div>
+                <div class="analysis-box scale">
+                    <h4>🚀 Hướng Scale & Mở Rộng</h4>
+                    <ul>
+                        <li><strong>Scale Dịp lễ:</strong> Thay đổi thông điệp để bán vào dịp Tưởng niệm (In Loving Memory), Giáng sinh (Christmas Ornament).</li><li><strong>Scale Quà tặng:</strong> Bán kèm hộp quà cao cấp hoặc đèn LED chiếu đế.</li>
+                    </ul>
+                    
+                    <!-- Scale Images Section -->
+                    <div class="scale-section">
+                        <h4>🎨 3 Hướng Re-design / Scale Bằng Hình Ảnh:</h4>
+                        <div class="scale-images-grid">
+                            
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Glass%20angel%20figurine%20mockup%20holding%20preserved%20flowers%2C%20memorial%20gift%20In%20Loving%20Memory%2C%20elegant%20soft%20lighting%2C%20dark%20background?width=400&height=400&nologo=true" alt="Scale Idea 1">
+                            <span>Quà tưởng niệm (Memorial)</span>
+                        </div>
+        
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Glass%20angel%20Christmas%20tree%20ornament%20mockup%2C%20elegant%20warm%20holiday%20lighting%2C%20pine%20tree%20background%2C%20high%20quality?width=400&height=400&nologo=true" alt="Scale Idea 2">
+                            <span>Đồ trang trí Giáng sinh</span>
+                        </div>
+        
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Glass%20angel%20figurine%20mockup%20resting%20on%20a%20glowing%20LED%20wooden%20base%2C%20premium%20black%20gift%20box%2C%20luxury%20product%20photography?width=400&height=400&nologo=true" alt="Scale Idea 3">
+                            <span>Bán kèm Đế LED/Hộp quà</span>
+                        </div>
+        
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <a href="https://macorner.co/products/mother-children-forever-linked-together-personalized-flower-in-glass-angel-figurines-marjtp671" class="product-link" target="_blank">Xem chi tiết sản phẩm gốc</a>
+        </div>
+    </div>
+    
+    <!-- Product 3 -->
+    <div class="product-card">
+        <div class="image-container">
+            <img class="product-image" src="https://cdn.shopify.com/s/files/1/0626/0421/4428/files/Mother_Daughters_Forever_Linked_Together_Personalized_Bracelet_1.jpg?v=1775812885" alt="Mother & Daughters Forever Linked Together - Personalized Bracelet">
+        </div>
+        <div class="product-details">
+            <div class="rank-badge">#3</div>
+            <h2 class="product-title">Mother & Daughters Forever Linked Together - Personalized Bracelet</h2>
+            <div class="product-price">$29.95</div>
+            
+            <div class="analysis-grid">
+                <div class="analysis-box audience">
+                    <h4>🎯 Tệp Khách Hàng</h4>
+                    <p>Phụ nữ trẻ (18-40 tuổi), Gen Z, Millennials mua tặng mẹ hoặc ngược lại. Những người thích trang sức tinh tế, dễ đeo hàng ngày.</p>
+                </div>
+                <div class="analysis-box insight">
+                    <h4>💡 Phân Tích Insight</h4>
+                    <p>Trang sức cá nhân hóa khắc tên/charm là top seller vì tính thực dụng cao. Một chiếc vòng tay nhỏ nhắn kết nối mẹ con tinh tế hơn nhiều so với áo thun. Phí ship quốc tế cho đồ trang sức là cực rẻ.</p>
+                </div>
+                <div class="analysis-box scale">
+                    <h4>🚀 Hướng Scale & Mở Rộng</h4>
+                    <ul>
+                        <li><strong>Scale Đối tượng:</strong> Mở rộng sang ngách Bạn thân (Besties), Cặp đôi (Couples khắc tọa độ).</li><li><strong>Scale Volume:</strong> Chiến lược BUNDLE bán set 2, 3, 4 vòng với giá chiết khấu.</li>
+                    </ul>
+                    
+                    <!-- Scale Images Section -->
+                    <div class="scale-section">
+                        <h4>🎨 3 Hướng Re-design / Scale Bằng Hình Ảnh:</h4>
+                        <div class="scale-images-grid">
+                            
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Elegant%20silver%20friendship%20bracelet%20mockup%2C%20Soul%20Sisters%20engraving%2C%20soft%20minimalist%20background%2C%20jewelry%20product%20photography?width=400&height=400&nologo=true" alt="Scale Idea 1">
+                            <span>Vòng tay tình bạn</span>
+                        </div>
+        
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Silver%20matching%20couples%20bracelet%20mockup%2C%20custom%20GPS%20coordinates%20engraving%2C%20minimalist%20background%2C%20jewelry%20photography?width=400&height=400&nologo=true" alt="Scale Idea 2">
+                            <span>Vòng tay cặp đôi (Tọa độ)</span>
+                        </div>
+        
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Set%20of%20three%20matching%20silver%20bracelets%20bundle%20mockup%2C%20Family%20connection%20jewelry%2C%20minimalist%20white%20background%2C%20high%20quality?width=400&height=400&nologo=true" alt="Scale Idea 3">
+                            <span>Bán Combo (Bundle 3 vòng)</span>
+                        </div>
+        
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <a href="https://macorner.co/products/mother-daughters-forever-linked-together-personalized-bracelet-makcmi5m8" class="product-link" target="_blank">Xem chi tiết sản phẩm gốc</a>
+        </div>
+    </div>
+    
+    <!-- Product 4 -->
+    <div class="product-card">
+        <div class="image-container">
+            <img class="product-image" src="https://cdn.shopify.com/s/files/1/0626/0421/4428/files/Custom_Birth_Flower_Name_Gift_For_Book_Lovers_Friend_Personalized_Book_Nook_1.jpg?v=1775818891" alt="Custom Birth Flower & Name Gift For Book Lovers - Personalized Wooden Plaque">
+        </div>
+        <div class="product-details">
+            <div class="rank-badge">#4</div>
+            <h2 class="product-title">Custom Birth Flower & Name Gift For Book Lovers - Personalized Wooden Plaque</h2>
+            <div class="product-price">$29.95</div>
+            
+            <div class="analysis-grid">
+                <div class="analysis-box audience">
+                    <h4>🎯 Tệp Khách Hàng</h4>
+                    <p>Hội đam mê đọc sách (Bookworms), giáo viên, thủ thư, học sinh/sinh viên. Độ tuổi từ 15-50 tuổi, có sở thích sưu tầm sách.</p>
+                </div>
+                <div class="analysis-box insight">
+                    <h4>💡 Phân Tích Insight</h4>
+                    <p>Sự kết hợp chéo (Cross-niche) hoàn hảo giữa ngách "Book Lover" và trend "Birth Flower". Sản phẩm bảng gỗ dạng Book Nook vừa dùng để trang trí kệ sách, vừa có thể làm đồ chặn sách. Thiết kế rustic mộc mạc.</p>
+                </div>
+                <div class="analysis-box scale">
+                    <h4>🚀 Hướng Scale & Mở Rộng</h4>
+                    <ul>
+                        <li><strong>Scale Thiết kế:</strong> Thay hình cô gái bằng kệ sách có in tên các cuốn sách yêu thích.</li><li><strong>Scale Ngách:</strong> Mở rộng cho ngách Game Thủ, Mọt Phim điện ảnh (Movie Lovers).</li><li><strong>Cross-sell:</strong> Bán kèm Bookmark gỗ.</li>
+                    </ul>
+                    
+                    <!-- Scale Images Section -->
+                    <div class="scale-section">
+                        <h4>🎨 3 Hướng Re-design / Scale Bằng Hình Ảnh:</h4>
+                        <div class="scale-images-grid">
+                            
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Wooden%20bookshelf%20decor%20book%20nook%20mockup%2C%20rustic%20wood%2C%20personalized%20favorite%20books%20engraving%2C%20cozy%20library%20lighting?width=400&height=400&nologo=true" alt="Scale Idea 1">
+                            <span>Thiết kế kệ sách yêu thích</span>
+                        </div>
+        
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Gamer%20setup%20corner%20wooden%20plaque%20mockup%2C%20neon%20LED%20lighting%20background%2C%20cool%20product%20photography?width=400&height=400&nologo=true" alt="Scale Idea 2">
+                            <span>Đổi ngách sang Game Thủ</span>
+                        </div>
+        
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Engraved%20wooden%20bookmark%20mockup%20with%20a%20tassel%2C%20resting%20on%20an%20open%20old%20book%2C%20cozy%20aesthetic%2C%20high%20quality?width=400&height=400&nologo=true" alt="Scale Idea 3">
+                            <span>Bán chéo Bookmark Gỗ</span>
+                        </div>
+        
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <a href="https://macorner.co/products/custom-birth-flower-name-gift-for-book-lovers-friend-personalized-wooden-plaque-mauexidkv" class="product-link" target="_blank">Xem chi tiết sản phẩm gốc</a>
+        </div>
+    </div>
+    
+    <!-- Product 5 -->
+    <div class="product-card">
+        <div class="image-container">
+            <img class="product-image" src="https://cdn.shopify.com/s/files/1/0626/0421/4428/files/Toile_De_Jouy_Custom_Vintage_Photo_Mom_And_Children_Thank_You_Gifts_For_Mom_Personalized_Wine_Tumbler_1.jpg?v=1775787501" alt="Toile De Jouy Custom Vintage Photo Mom And Children - Personalized Wine Tumbler">
+        </div>
+        <div class="product-details">
+            <div class="rank-badge">#5</div>
+            <h2 class="product-title">Toile De Jouy Custom Vintage Photo Mom And Children - Personalized Wine Tumbler</h2>
+            <div class="product-price">$29.95</div>
+            
+            <div class="analysis-grid">
+                <div class="analysis-box audience">
+                    <h4>🎯 Tệp Khách Hàng</h4>
+                    <p>Phụ nữ 25-55 tuổi, thích phong cách quý tộc, cổ điển, nghệ thuật. Những người có thói quen uống trà, cà phê, hoặc rượu vang.</p>
+                </div>
+                <div class="analysis-box insight">
+                    <h4>💡 Phân Tích Insight</h4>
+                    <p>"Toile De Jouy" là họa tiết đồng quê Pháp đang trending. Việc mix pattern này với ảnh gia đình dạng vintage filter tạo sự khác biệt lớn. Ly giữ nhiệt (Tumbler) là sản phẩm dùng hàng ngày thực tế.</p>
+                </div>
+                <div class="analysis-box scale">
+                    <h4>🚀 Hướng Scale & Mở Rộng</h4>
+                    <ul>
+                        <li><strong>Scale Sản phẩm:</strong> In pattern "Toile De Jouy" lên Túi Tote, Vỏ điện thoại, Chăn (Blanket).</li><li><strong>Scale Kỹ thuật:</strong> Thêm filter chuyển ảnh thật thành tranh màu nước (Watercolor).</li>
+                    </ul>
+                    
+                    <!-- Scale Images Section -->
+                    <div class="scale-section">
+                        <h4>🎨 3 Hướng Re-design / Scale Bằng Hình Ảnh:</h4>
+                        <div class="scale-images-grid">
+                            
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Canvas%20tote%20bag%20mockup%20with%20blue%20Toile%20De%20Jouy%20vintage%20french%20countryside%20pattern%2C%20bright%20outdoor%20lighting%2C%20fashion%20photography?width=400&height=400&nologo=true" alt="Scale Idea 1">
+                            <span>Mở rộng sang Túi Tote</span>
+                        </div>
+        
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Insulated%20wine%20tumbler%20mockup%2C%20beautiful%20watercolor%20family%20portrait%20printed%20on%20it%2C%20white%20background%2C%20product%20photography?width=400&height=400&nologo=true" alt="Scale Idea 2">
+                            <span>Filter Ảnh Màu Nước</span>
+                        </div>
+        
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Cozy%20fleece%20blanket%20mockup%20draped%20over%20a%20bed%2C%20blue%20Toile%20De%20Jouy%20vintage%20pattern%2C%20bright%20bedroom%20lighting?width=400&height=400&nologo=true" alt="Scale Idea 3">
+                            <span>Mở rộng sang Chăn (Blanket)</span>
+                        </div>
+        
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <a href="https://macorner.co/products/toile-de-jouy-custom-vintage-photo-mom-and-children-thank-you-gifts-for-mom-personalized-wine-tumbler-mae9u7vzx" class="product-link" target="_blank">Xem chi tiết sản phẩm gốc</a>
+        </div>
+    </div>
+    
+    <!-- Product 6 -->
+    <div class="product-card">
+        <div class="image-container">
+            <img class="product-image" src="https://cdn.shopify.com/s/files/1/0626/0421/4428/files/Custom_Football_Mom_Grandma_Personalized_Shirt_1.jpg?v=1775812760" alt="Custom Football Mom, Grandma - Personalized Shirt">
+        </div>
+        <div class="product-details">
+            <div class="rank-badge">#6</div>
+            <h2 class="product-title">Custom Football Mom, Grandma - Personalized Shirt</h2>
+            <div class="product-price">$29.95</div>
+            
+            <div class="analysis-grid">
+                <div class="analysis-box audience">
+                    <h4>🎯 Tệp Khách Hàng</h4>
+                    <p>Phụ huynh ở Mỹ (Mẹ và Bà) có con/cháu tham gia các đội thể thao trường học hoặc câu lạc bộ.</p>
+                </div>
+                <div class="analysis-box insight">
+                    <h4>💡 Phân Tích Insight</h4>
+                    <p>Văn hóa tự hào thể thao học đường ở Mỹ rất lớn. Các bà mẹ (Sports Moms) coi việc mặc áo in tên/số áo của con như niềm kiêu hãnh. Áo thun là sản phẩm dễ mua, form unisex.</p>
+                </div>
+                <div class="analysis-box scale">
+                    <h4>🚀 Hướng Scale & Mở Rộng</h4>
+                    <ul>
+                        <li><strong>Scale Môn thể thao:</strong> Nhân bản sang Baseball Mom, Soccer Mom, Hockey Mom.</li><li><strong>Scale Theo Mùa:</strong> Chuyển sang áo Hoodie, Sweatshirt cho mùa đông.</li><li><strong>Scale Phụ trợ:</strong> Bán kèm bình giữ nhiệt dung tích lớn (Sport Jugs).</li>
+                    </ul>
+                    
+                    <!-- Scale Images Section -->
+                    <div class="scale-section">
+                        <h4>🎨 3 Hướng Re-design / Scale Bằng Hình Ảnh:</h4>
+                        <div class="scale-images-grid">
+                            
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Unisex%20t-shirt%20mockup%2C%20Baseball%20Mom%20graphic%20design%2C%20sporty%20aesthetic%2C%20bright%20studio%20lighting%2C%20flat%20lay?width=400&height=400&nologo=true" alt="Scale Idea 1">
+                            <span>Đổi môn (Baseball/Soccer)</span>
+                        </div>
+        
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Cozy%20winter%20hoodie%20sweatshirt%20mockup%2C%20Sports%20Mom%20graphic%20design%2C%20folded%20neatly%20on%20a%20wooden%20table%2C%20top%20down%20view?width=400&height=400&nologo=true" alt="Scale Idea 2">
+                            <span>Bán Hoodie mùa đông</span>
+                        </div>
+        
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Large%20metal%20sports%20water%20jug%20tumbler%20mockup%2C%20Sports%20Mom%20engraving%2C%20gym%20background%2C%20high%20quality%20product%20photography?width=400&height=400&nologo=true" alt="Scale Idea 3">
+                            <span>Bình giữ nhiệt thể thao</span>
+                        </div>
+        
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <a href="https://macorner.co/products/custom-football-mom-grandma-personalized-shirt-ma7oh4sxt" class="product-link" target="_blank">Xem chi tiết sản phẩm gốc</a>
+        </div>
+    </div>
+    
+    <!-- Product 7 -->
+    <div class="product-card">
+        <div class="image-container">
+            <img class="product-image" src="https://cdn.shopify.com/s/files/1/0626/0421/4428/files/Grandmas-Garden-Love-Grows-Here-Gift-For-Grandma-Personalized-Ceramic-Plant-Pot_1.jpg?v=1775814571" alt="Grandma's Garden Love Grows Here - Personalized Ceramic Plant Pot">
+        </div>
+        <div class="product-details">
+            <div class="rank-badge">#7</div>
+            <h2 class="product-title">Grandma's Garden Love Grows Here - Personalized Ceramic Plant Pot</h2>
+            <div class="product-price">$29.95</div>
+            
+            <div class="analysis-grid">
+                <div class="analysis-box audience">
+                    <h4>🎯 Tệp Khách Hàng</h4>
+                    <p>Những người lớn tuổi (Bà, Mẹ) có sở thích làm vườn (Gardening), yêu cây cối (Plant lovers).</p>
+                </div>
+                <div class="analysis-box insight">
+                    <h4>💡 Phân Tích Insight</h4>
+                    <p>Chậu cây gốm sứ là sản phẩm thực tế. Nhìn thấy tên các cháu trên chậu cây mỗi ngày khi tưới nước tạo ra giá trị tinh thần bền vững hơn rất nhiều so với quần áo.</p>
+                </div>
+                <div class="analysis-box scale">
+                    <h4>🚀 Hướng Scale & Mở Rộng</h4>
+                    <ul>
+                        <li><strong>Scale Nhóm Pet:</strong> Đổi thành "Cat Mom's Garden" hoặc "Crazy Plant Lady".</li><li><strong>Scale Bundle:</strong> Bán theo set 3 chậu nhỏ (cho cây sen đá).</li><li><strong>Sản phẩm đi kèm:</strong> Bộ dụng cụ làm vườn mini khắc tên.</li>
+                    </ul>
+                    
+                    <!-- Scale Images Section -->
+                    <div class="scale-section">
+                        <h4>🎨 3 Hướng Re-design / Scale Bằng Hình Ảnh:</h4>
+                        <div class="scale-images-grid">
+                            
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Small%20ceramic%20plant%20pot%20mockup%20containing%20a%20cute%20succulent%2C%20Crazy%20Plant%20Lady%20text%20with%20a%20cat%20silhouette%2C%20soft%20lighting?width=400&height=400&nologo=true" alt="Scale Idea 1">
+                            <span>Niche Mèo & Cây cối</span>
+                        </div>
+        
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Bundle%20of%20three%20small%20ceramic%20plant%20pots%20mockup%20with%20succulents%2C%20minimalist%20white%20background%2C%20home%20decor%20product%20photography?width=400&height=400&nologo=true" alt="Scale Idea 2">
+                            <span>Combo 3 Chậu Sen Đá</span>
+                        </div>
+        
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Mini%20wooden%20gardening%20tools%20shovel%20and%20rake%20mockup%2C%20custom%20engraved%20handles%2C%20resting%20on%20potting%20soil%2C%20top%20down%20view?width=400&height=400&nologo=true" alt="Scale Idea 3">
+                            <span>Dụng cụ làm vườn khắc tên</span>
+                        </div>
+        
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <a href="https://macorner.co/products/grandmas-garden-love-grows-here-gift-for-grandma-personalized-ceramic-plant-pot-mae84c5wb" class="product-link" target="_blank">Xem chi tiết sản phẩm gốc</a>
+        </div>
+    </div>
+    
+    <!-- Product 8 -->
+    <div class="product-card">
+        <div class="image-container">
+            <img class="product-image" src="https://cdn.shopify.com/s/files/1/0626/0421/4428/files/A_Sweet_Ending_To_A_New_Beginning_Graduation_Personalized_Book_Nook_1.jpg?v=1775806682" alt="A Sweet Ending To A New Beginning Graduation - Personalized Wooden Plaque">
+        </div>
+        <div class="product-details">
+            <div class="rank-badge">#8</div>
+            <h2 class="product-title">A Sweet Ending To A New Beginning Graduation - Personalized Wooden Plaque</h2>
+            <div class="product-price">$29.95</div>
+            
+            <div class="analysis-grid">
+                <div class="analysis-box audience">
+                    <h4>🎯 Tệp Khách Hàng</h4>
+                    <p>Phụ huynh, bạn bè, người thân của học sinh/sinh viên chuẩn bị tốt nghiệp.</p>
+                </div>
+                <div class="analysis-box insight">
+                    <h4>💡 Phân Tích Insight</h4>
+                    <p>Mùa tốt nghiệp (tháng 5, 6) là mỏ vàng POD. Quà tốt nghiệp mang tính lưu niệm cao. Bảng gỗ khắc tên, trường, năm tốt nghiệp có giá trị trưng bày lâu dài trên bàn làm việc.</p>
+                </div>
+                <div class="analysis-box scale">
+                    <h4>🚀 Hướng Scale & Mở Rộng</h4>
+                    <ul>
+                        <li><strong>Scale Ngành Nghề:</strong> Thiết kế riêng cho Tốt nghiệp Y tá (Nurse), Bác sĩ, Luật sư.</li><li><strong>Scale Sản phẩm:</strong> Chuyển thiết kế lên Ly cà phê giữ nhiệt hoặc Khung ảnh tốt nghiệp.</li>
+                    </ul>
+                    
+                    <!-- Scale Images Section -->
+                    <div class="scale-section">
+                        <h4>🎨 3 Hướng Re-design / Scale Bằng Hình Ảnh:</h4>
+                        <div class="scale-images-grid">
+                            
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Wooden%20graduation%20plaque%20mockup%2C%20Nurse%20Graduation%20medical%20theme%2C%20stethoscope%20and%20flowers%2C%20wooden%20desk%20background?width=400&height=400&nologo=true" alt="Scale Idea 1">
+                            <span>Tốt nghiệp Ngành Y/Nurse</span>
+                        </div>
+        
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Insulated%20coffee%20tumbler%20mockup%2C%20Graduation%20Tears%20funny%20quote%2C%20office%20desk%20background%2C%20high%20quality%20product%20photography?width=400&height=400&nologo=true" alt="Scale Idea 2">
+                            <span>Ly Cà Phê Tốt Nghiệp</span>
+                        </div>
+        
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Elegant%20wooden%20custom%20photo%20frame%20mockup%2C%20Graduation%20theme%2C%20resting%20on%20a%20shelf%2C%20interior%20decor%20photography?width=400&height=400&nologo=true" alt="Scale Idea 3">
+                            <span>Khung Ảnh Tốt Nghiệp</span>
+                        </div>
+        
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <a href="https://macorner.co/products/a-sweet-ending-to-a-new-beginning-graduation-personalized-wooden-plaque-maknxv5fl" class="product-link" target="_blank">Xem chi tiết sản phẩm gốc</a>
+        </div>
+    </div>
+    
+    <!-- Product 9 -->
+    <div class="product-card">
+        <div class="image-container">
+            <img class="product-image" src="https://cdn.shopify.com/s/files/1/0626/0421/4428/files/To_Mom_From_The_Reasons_You_Drink_Fun_Gifts_For_Mom_Wife_Personalized_Leather_Wine_Bag_1.jpg?v=1775721149" alt="To Mom From The Reasons You Drink - Personalized Leather Wine Bag">
+        </div>
+        <div class="product-details">
+            <div class="rank-badge">#9</div>
+            <h2 class="product-title">To Mom From The Reasons You Drink - Personalized Leather Wine Bag</h2>
+            <div class="product-price">$29.95</div>
+            
+            <div class="analysis-grid">
+                <div class="analysis-box audience">
+                    <h4>🎯 Tệp Khách Hàng</h4>
+                    <p>Người con trưởng thành, hoặc chồng mua tặng vợ. Tệp khách hài hước, thích uống rượu vang.</p>
+                </div>
+                <div class="analysis-box insight">
+                    <h4>💡 Phân Tích Insight</h4>
+                    <p>Ngách Hài hước (Humor). Một món quà "cà khịa" dí dỏm thu hút sự chú ý cực mạnh trên quảng cáo. Túi da thật sự tạo sự sang trọng bù đắp cho câu quote vui nhộn.</p>
+                </div>
+                <div class="analysis-box scale">
+                    <h4>🚀 Hướng Scale & Mở Rộng</h4>
+                    <ul>
+                        <li><strong>Scale Thông điệp:</strong> Áp dụng lên Ông Bố (Lý do bố uống bia), Giáo viên.</li><li><strong>Scale Sản phẩm:</strong> Áp dụng lên Ly rượu vang (Stemless), Đế lót ly bằng đá.</li>
+                    </ul>
+                    
+                    <!-- Scale Images Section -->
+                    <div class="scale-section">
+                        <h4>🎨 3 Hướng Re-design / Scale Bằng Hình Ảnh:</h4>
+                        <div class="scale-images-grid">
+                            
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Elegant%20crystal%20whiskey%20glass%20mockup%2C%20Reasons%20Dad%20Drinks%20engraving%2C%20dark%20moody%20lighting%2C%20luxury%20product%20photography?width=400&height=400&nologo=true" alt="Scale Idea 1">
+                            <span>Đổi sang Tệp Bố (Uống Bia/Whiskey)</span>
+                        </div>
+        
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Leather%20wine%20bag%20mockup%2C%20Funny%20Teacher%27s%20Wine%20quote%2C%20rustic%20wooden%20table%2C%20cozy%20indoor%20lighting?width=400&height=400&nologo=true" alt="Scale Idea 2">
+                            <span>Đổi sang Tệp Giáo viên</span>
+                        </div>
+        
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Set%20of%20square%20stone%20drink%20coasters%20mockup%2C%20humorous%20drinking%20quotes%2C%20minimalist%20coffee%20table%2C%20top%20down%20view?width=400&height=400&nologo=true" alt="Scale Idea 3">
+                            <span>Đế lót ly đá (Coasters)</span>
+                        </div>
+        
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <a href="https://macorner.co/products/to-mom-from-the-reasons-you-drink-fun-gifts-for-mom-wife-personalized-leather-wine-bag-mak8u87ye" class="product-link" target="_blank">Xem chi tiết sản phẩm gốc</a>
+        </div>
+    </div>
+    
+    <!-- Product 10 -->
+    <div class="product-card">
+        <div class="image-container">
+            <img class="product-image" src="https://cdn.shopify.com/s/files/1/0626/0421/4428/files/Girls_Trip_Summer_Personalized_Wine_Tumbler_1.jpg?v=1775717955" alt="Girls Trip Summer - Personalized Wine Tumbler">
+        </div>
+        <div class="product-details">
+            <div class="rank-badge">#10</div>
+            <h2 class="product-title">Girls Trip Summer - Personalized Wine Tumbler</h2>
+            <div class="product-price">$29.95</div>
+            
+            <div class="analysis-grid">
+                <div class="analysis-box audience">
+                    <h4>🎯 Tệp Khách Hàng</h4>
+                    <p>Nhóm bạn nữ, hội chị em đi du lịch hè, hoặc tiệc độc thân (Bachelorette party).</p>
+                </div>
+                <div class="analysis-box insight">
+                    <h4>💡 Phân Tích Insight</h4>
+                    <p>Sức mạnh của ngách Du lịch nhóm là tính Lan truyền. Khách hàng thường mua số lượng lớn cho cả nhóm (3-10 cái). Ly Tumbler giữ nhiệt lạnh rất tốt cho bãi biển.</p>
+                </div>
+                <div class="analysis-box scale">
+                    <h4>🚀 Hướng Scale & Mở Rộng</h4>
+                    <ul>
+                        <li><strong>Scale Chủ đề:</strong> Mở rộng "Vegas Trip", "Winter Ski Trip", "Cruise Squad".</li><li><strong>Scale Bulk Order:</strong> Chiết khấu số lượng lớn.</li><li><strong>Bundle:</strong> Tumbler + Áo thun nhóm + Túi Tote.</li>
+                    </ul>
+                    
+                    <!-- Scale Images Section -->
+                    <div class="scale-section">
+                        <h4>🎨 3 Hướng Re-design / Scale Bằng Hình Ảnh:</h4>
+                        <div class="scale-images-grid">
+                            
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Insulated%20wine%20tumbler%20mockup%2C%20Winter%20Ski%20Trip%20mountain%20theme%2C%20snowy%20background%2C%20high%20quality%20product%20photography?width=400&height=400&nologo=true" alt="Scale Idea 1">
+                            <span>Du lịch mùa đông (Trượt tuyết)</span>
+                        </div>
+        
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Group%20of%20three%20matching%20insulated%20wine%20tumblers%20mockup%2C%20Cruise%20Squad%20tropical%20theme%2C%20beach%20background?width=400&height=400&nologo=true" alt="Scale Idea 2">
+                            <span>Du lịch Tàu biển (Cruise)</span>
+                        </div>
+        
+                        <div class="scale-item">
+                            <img src="https://image.pollinations.ai/prompt/Travel%20bundle%20mockup%2C%20matching%20insulated%20tumbler%20and%20a%20canvas%20tote%20bag%2C%20Girls%20Trip%20theme%2C%20bright%20studio%20lighting?width=400&height=400&nologo=true" alt="Scale Idea 3">
+                            <span>Bán Combo (Ly + Túi Tote)</span>
+                        </div>
+        
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <a href="https://macorner.co/products/girls-trip-summer-personalized-wine-tumbler-max6p0a3k" class="product-link" target="_blank">Xem chi tiết sản phẩm gốc</a>
+        </div>
+    </div>
+    
+</div>
+</body>
+</html>
