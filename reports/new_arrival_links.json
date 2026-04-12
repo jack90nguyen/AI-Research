@@ -1,0 +1,160 @@
+[
+    {
+        "domain": "wanderprints.com",
+        "new_links": [
+            "https://wanderprints.com/collections/new-baby",
+            "https://wanderprints.com/collections/new-arrival?sort=created%2Cdesc"
+        ],
+        "error": null
+    },
+    {
+        "domain": "gossby.com",
+        "new_links": [
+            "https://gossby.com/collections/new-arrivals",
+            "https://gossby.com/new"
+        ],
+        "error": "Không tìm thấy link 'mới' cụ thể trên trang chủ, đây là các link dự đoán."
+    },
+    {
+        "domain": "pawfecthouse.com",
+        "new_links": [
+            "https://pawfecthouse.com/collections/new-arrivals",
+            "https://pawfecthouse.com/collections/new-arrivals?tab=products&sort_by=created&sort_order=desc&page=1",
+            "https://pawfecthouse.com/products/custom-photo-your-love-is-our-eternal-memory-memorial-personalized-custom-pocket-hug-new-arrival-sympathy-gift-for-family-members-amz"
+        ],
+        "error": null
+    },
+    {
+        "domain": "crownandpaw.com",
+        "new_links": [
+            "https://crownandpaw.com/blogs/news",
+            "https://crownandpaw.com/collections/new-releases"
+        ],
+        "error": null
+    },
+    {
+        "domain": "westandwillow.com",
+        "new_links": [
+            "https://westandwillow.com/blogs/news"
+        ],
+        "error": null
+    },
+    {
+        "domain": "personalizationmall.com",
+        "new_links": [
+            "https://personalizationmall.com/collections/new-arrivals",
+            "https://personalizationmall.com/new"
+        ],
+        "error": "Lỗi truy cập trang chủ: HTTP Error 403: Forbidden"
+    },
+    {
+        "domain": "shutterfly.com",
+        "new_links": [
+            "https://shutterfly.com/collections/new-arrivals",
+            "https://shutterfly.com/new"
+        ],
+        "error": "Lỗi truy cập trang chủ: HTTP Error 403: Forbidden"
+    },
+    {
+        "domain": "markandgraham.com",
+        "new_links": [
+            "https://markandgraham.com/collections/new-arrivals",
+            "https://markandgraham.com/new"
+        ],
+        "error": "Lỗi truy cập trang chủ: HTTP Error 403: Forbidden"
+    },
+    {
+        "domain": "wonderbly.com",
+        "new_links": [
+            "https://wonderbly.com/personalized-books/new-in",
+            "https://wonderbly.com/personalized-books/occasions/new-baby",
+            "https://wonderbly.com/personalized-books/adults/themes/newspaper"
+        ],
+        "error": null
+    },
+    {
+        "domain": "bluecrate.com",
+        "new_links": [
+            "https://bluecrate.com/collections/new-arrivals",
+            "https://bluecrate.com/new"
+        ],
+        "error": "Không tìm thấy link 'mới' cụ thể trên trang chủ, đây là các link dự đoán."
+    },
+    {
+        "domain": "theoodie.com",
+        "new_links": [
+            "https://theoodie.com/collections/new-arrivals"
+        ],
+        "error": null
+    },
+    {
+        "domain": "macorner.co",
+        "new_links": [
+            "https://macorner.co/collections/newborn?utm_source=nav&utm_medium=by_occ",
+            "https://macorner.co/collections/new-arrivals?utm_source=nav&utm_medium=by_prd"
+        ],
+        "error": null
+    },
+    {
+        "domain": "gearbunch.com",
+        "new_links": [
+            "https://gearbunch.com/blogs/news",
+            "https://gearbunch.com/collections/new-arrivals"
+        ],
+        "error": null
+    },
+    {
+        "domain": "uncommongoods.com",
+        "new_links": [
+            "https://uncommongoods.com/collections/new-arrivals",
+            "https://uncommongoods.com/new"
+        ],
+        "error": "Không tìm thấy link 'mới' cụ thể trên trang chủ, đây là các link dự đoán."
+    },
+    {
+        "domain": "meowingtons.com",
+        "new_links": [
+            "https://meowingtons.com/collections/new-arrivals"
+        ],
+        "error": null
+    },
+    {
+        "domain": "pupsentials.com",
+        "new_links": [
+            "https://pupsentials.com/collections/new-arrivals",
+            "https://pupsentials.com/new"
+        ],
+        "error": "Không tìm thấy link 'mới' cụ thể trên trang chủ, đây là các link dự đoán."
+    },
+    {
+        "domain": "ilikemaps.com",
+        "new_links": [
+            "https://ilikemaps.com/collections/new-arrivals",
+            "https://ilikemaps.com/new"
+        ],
+        "error": "Không tìm thấy link 'mới' cụ thể trên trang chủ, đây là các link dự đoán."
+    },
+    {
+        "domain": "wrappiness.co",
+        "new_links": [
+            "https://wrappiness.co/collections/new-arrival"
+        ],
+        "error": null
+    },
+    {
+        "domain": "minted.com",
+        "new_links": [
+            "https://minted.com/collections/new-arrivals",
+            "https://minted.com/new"
+        ],
+        "error": "Không tìm thấy link 'mới' cụ thể trên trang chủ, đây là các link dự đoán."
+    },
+    {
+        "domain": "sunflowerly.com",
+        "new_links": [
+            "https://sunflowerly.com/collections/new-arrivals",
+            "https://sunflowerly.com/new"
+        ],
+        "error": "Không tìm thấy link 'mới' cụ thể trên trang chủ, đây là các link dự đoán."
+    }
+]
